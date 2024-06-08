@@ -36,6 +36,9 @@
       "@content/*": [
         "./src/ts/content/*"
       ],
+      "@fonts/*": [
+        "./src/fonts/*"
+      ],
       "@hooks/*": [
         "./src/ts/hooks/*"
       ],
