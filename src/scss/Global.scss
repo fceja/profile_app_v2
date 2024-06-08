@@ -15,3 +15,8 @@ $app-font-size: 16px;
         font-optical-sizing: auto;
     }
 }
+
+html,
+body {
+    min-width: 300px;
+}
