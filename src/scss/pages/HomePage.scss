@@ -1,14 +1,18 @@
 @import "@scss/Variables.scss";
 
+.home-page-div {
+  width: 100%;
+}
+
 /* screen sizes zero to md */
 @media (max-width: $breakpoint-md) {
   .hero-div {
-    height: 240px;
+    height: 260px;
     position: relative;
     display: flex;
   }
 
-  .trapezoid-div {
+  .trapezoid-background-div {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -24,6 +28,7 @@
 
   .left-div {
     width: 50%;
+    height: 100%;
   }
 
   .heading-div {
@@ -37,49 +42,85 @@
 
   .right-div {
     width: 50%;
+    height: 100%;
+  }
+
+  .trapezoid-container {
+    width: 100%;
+    height: 100%;
   }
 
   .trapezoid-img-div {
-    height: 100%;
+    height: 252px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 55%, 0% 90%);
     display: flex;
     justify-content: center;
+    margin: 31px 10px 0 10px;
+    overflow: hidden;
   }
 
-  .bullets-div {
-    width: 50%;
-    margin-left: 10px;
+  .img-main {
+    height: 100%;
+  }
+}
+
+/* screen sizes md and greater */
+@media (min-width: $breakpoint-md) {
+  .hero-div {
+    height: 500px;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
-}
 
-.img-gradient-div {
-  width: 100%;
-  position: relative;
-}
+  .trapezoid-background-div {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 65%);
+    background-color: rgb(21, 33, 67);
+  }
 
-div.gradient {
-  padding: 0;
-  margin: 0;
-  background-image: linear-gradient(to right,
-      transparent,
-      $homepage-img-gradient );
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+  .left-right-div {
+    width: 100%;
+    display: flex;
+  }
 
-img.img-main {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-}
+  .left-div {
+    width: 50%;
+    height: 100%;
+    margin-top: 40px;
+  }
 
-.sub-text {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  .heading-div {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: -.6px;
+    margin: 15px 4px 0 4px;
+  }
+
+  .right-div {
+    width: 50%;
+    height: 100%;
+  }
+
+  .trapezoid-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .trapezoid-img-div {
+    height: 450px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 55%, 0% 90%);
+    display: flex;
+    justify-content: center;
+    margin: 72px 10px 0 10px;
+    overflow: hidden;
+  }
+
+  .img-main {
+    height: 100%;
+  }
 }

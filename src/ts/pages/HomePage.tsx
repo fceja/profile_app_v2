@@ -18,7 +18,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-                <div className="trapezoid-div"></div>
+                <div className="trapezoid-background-div"></div>
             </div>
         </div>
     );
