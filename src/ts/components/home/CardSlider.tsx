@@ -4,28 +4,28 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 const cards =
   [
     {
-      image: "https://picsum.photos/200/300",
+      image: "src/assets/clients/PaniniKabobGrill.png",
       title: "Title 1",
-      description: "This is description 1",
-      urlLink: "https://google.com",
+      description: "Panini Kabob Grill",
+      urlLink: "https://paninikabobgrill.com/",
     },
     {
-      image: "https://picsum.photos/201/300",
-      title: "Title 2",
-      description: "This is description 2",
-      urlLink: "https://google.com",
+      image: "src/assets/PopsAndSonsElectricLogo.png",
+      title: "Pops & Sons",
+      description: "Test",
+      urlLink: "todo",
     },
     {
-      image: "https://picsum.photos/202/300",
-      title: "Title 3",
-      description: "This is description 3",
-      urlLink: "https://google.com",
+      image: "src/assets/PopsAndSonsElectricLogo.png",
+      title: "Pops & Sons",
+      description: "Test",
+      urlLink: "todo",
     },
     {
-      image: "https://picsum.photos/203/300",
-      title: "Title 4",
-      description: "This is description 4",
-      urlLink: "https://google.com",
+      image: "src/assets/PopsAndSonsElectricLogo.png",
+      title: "Pops & Sons",
+      description: "Test",
+      urlLink: "todo",
     },
   ]
 
@@ -52,14 +52,12 @@ const CardSlider = () => {
         {cards.map((slide, index) => {
           return (
             <div key={index} className="card">
-              <a href={slide.urlLink} target="_blank" rel="noreferrer">
-                <div
+              <a className="card-link-container" href={slide.urlLink} target="_blank" rel="noreferrer">
+                <img
                   className="card-image"
-                  style={{ backgroundImage: `url(${slide.image})` }}
-                ></div>
+                  src={slide.image}
+                ></img>
               </a>
-              <p className="card-title">{slide.title}</p>
-              <p className="card-description">{slide.description}</p>
             </div>
           );
         })}

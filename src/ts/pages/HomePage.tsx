@@ -16,7 +16,10 @@ export default function HomePage() {
                         <div className="serv-list">lighting, panel, outlets, wiring / re-wiring, maintenance, repairs, inspections, commercial kitchen, HVAC, electrical room, backup power. Don&#39;t see the service you&#39;re looking for? Please ask!</div>
                     </span>
                 </section>
-                <section>< CardSlider /></section>
+                <section>
+                    <div className="clients"><i>Clients worked for:</i></div>
+                    < CardSlider />
+                </section>
             </div>
         </div>
     );
