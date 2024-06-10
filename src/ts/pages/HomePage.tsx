@@ -1,5 +1,6 @@
 import "@scss/pages/HomePage.scss";
 import Hero from "@components/home/Hero"
+import CardSlider from "@components/home/CardSlider"
 
 export default function HomePage() {
     return (
@@ -12,13 +13,10 @@ export default function HomePage() {
                     </span>
                     <span className="serv">
                         <div className="serv-title"><i>Services provided</i>: </div>
-                        <div className="serv-list">lighting, panel, outlets, wiring / re-wiring, maintenance, repairs, inspections, commercial kitchen, HVAC, electrical room, backup power. Don't see the service you're looking for? Please ask!</div>
+                        <div className="serv-list">lighting, panel, outlets, wiring / re-wiring, maintenance, repairs, inspections, commercial kitchen, HVAC, electrical room, backup power. Don&#39;t see the service you&#39;re looking for? Please ask!</div>
                     </span>
                 </section>
-                <section className="clients">
-                    <div>Some of our clients:</div>
-                    <div>Company A, Company B, Company C</div>
-                </section>
+                <section>< CardSlider /></section>
             </div>
         </div>
     );
