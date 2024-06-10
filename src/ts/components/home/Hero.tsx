@@ -6,6 +6,9 @@ const Hero = () => {
             <div className="left-right-div">
                 <div className="left-div">
                     <div className="heading-div">Get the <br />job done.<br /> Right.</div>
+                    <div className="nav-logo-container">
+                        <img className="nav-logo" src="src/assets/PopsAndSonsElectricLogo.png" alt="pops-and-sons-logo" />
+                    </div>
                 </div>
                 <div className="right-div">
                     <div className="trapezoid-img-div">

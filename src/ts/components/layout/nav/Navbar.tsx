@@ -4,10 +4,7 @@ import PageLinks from "@components/layout/nav/PageLinks";
 
 const NavBar = () => {
   return (
-    <nav className="nav-bar-container mt-4" id="id-nav-bar">
-      <div className="nav-logo-container">
-        <img className="nav-logo" src="src/assets/PopsAndSonsElectricLogo.png" alt="pops-and-sons-logo" />
-      </div>
+    <nav className="nav-bar-container" id="id-nav-bar">
       <HamburgerMenu />
       <PageLinks />
     </nav>

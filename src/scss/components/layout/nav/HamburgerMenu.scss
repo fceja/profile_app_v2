@@ -12,6 +12,7 @@ $menu-bar-container-height: 100px;
 $menu-bar-container-width: calc($menu-bar-container-height / 1.25);
 
 .hamburger-menu-bar-container {
+  margin: 0 0 0 30px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -31,10 +32,8 @@ $menu-bar-container-width: calc($menu-bar-container-height / 1.25);
 
 .menu {
   background-color: $default-whitesmoke;
-  display: flex;
   flex-direction: column;
   height: 350px;
-  width: 50%;
 }
 
 /* hamburger menu visibility */
@@ -53,13 +52,13 @@ $menu-bar-container-width: calc($menu-bar-container-height / 1.25);
 @media (max-width: 619px) {
   .visible {
     position: absolute;
-    top: 6em;
-    right: 0px;
+    top: 100px;
+    left: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-evenly;
-    min-width: 200px;
+    min-width: 190px;
 
     a {
       margin-top: 15px;
