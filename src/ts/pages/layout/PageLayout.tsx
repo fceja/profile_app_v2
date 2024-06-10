@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import "@scss/pages/layout/PageLayout.scss"
+import Navbar from "@components/layout/nav/Navbar"
+
 interface LayoutI {
     children: React.ReactNode;
 }
@@ -16,7 +18,8 @@ const Layout: React.FC<LayoutI> = (props) => {
     }, [location]);
 
     return (
-        <div className="page-layout d-flex justify-content" >
+        <div className="page-layout" >
+            <Navbar />
             {children}
         </div>
     );

@@ -1,0 +1,23 @@
+.nav-bar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  height: 10vh;
+  top: 0;
+  z-index: 1;
+  position: relative;
+}
+
+.nav-logo-container {
+  margin-left: 4%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 90%;
+}

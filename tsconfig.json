@@ -48,6 +48,9 @@
       "@scss/*": [
         "./src/scss/*"
       ],
+      "@utils/*": [
+        "./src/ts/utils/*"
+      ],
     },
   },
   "include": [

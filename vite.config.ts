@@ -15,6 +15,7 @@ export default defineConfig({
       "@hooks": path.resolve(__dirname, "./src/ts/hooks"),
       "@pages": path.resolve(__dirname, "./src/ts/pages"),
       "@scss": path.resolve(__dirname, "./src/scss"),
+      "@utils": path.resolve(__dirname, "./src/ts/utils"),
     }
   }
 })
