@@ -20,12 +20,12 @@
 
     .left-right-div {
         width: 100%;
-        height: 60%;
+        height: 75%;
         display: flex;
     }
 
     .left-div {
-        width: 60%;
+        width: 50%;
         height: 100%;
     }
 
@@ -38,12 +38,8 @@
         margin: -11.5px 0 0 0;
     }
 
-    .nav-logo {
-        height: 100px;
-    }
-
     .right-div {
-        width: 40%;
+        width: 50%;
         height: 100%;
     }
 
@@ -63,6 +59,18 @@
 
     .img-main {
         height: 100%;
+    }
+
+    .hero-logo-container {
+        margin: 7px 0 0 0;
+    }
+
+    .hero-logo {
+        height: 120px;
+        display: block;
+        margin: 0 auto 0 auto;
+        border-radius: 50%;
+        background-color: white;
     }
 }
 
@@ -86,7 +94,7 @@
 
     .left-right-div {
         width: 100%;
-        height: 55%;
+        height: 80%;
         display: flex;
     }
 
@@ -102,10 +110,6 @@
         font-weight: 700;
         letter-spacing: -.6px;
         margin: -21px 4px 0 4px;
-    }
-
-    .nav-logo {
-        height: 100px;
     }
 
     .right-div {
@@ -130,12 +134,16 @@
     .img-main {
         height: 100%;
     }
-}
 
-.nav-logo-container {
-    margin-left: 4%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .hero-logo-container {
+        margin: 15px 0 0 0;
+    }
+
+    .hero-logo {
+        height: 240px;
+        display: block;
+        margin: 0 auto 0 auto;
+        border-radius: 50%;
+        background-color: white;
+    }
 }
