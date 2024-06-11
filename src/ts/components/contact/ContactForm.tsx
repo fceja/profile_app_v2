@@ -2,14 +2,35 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
 import "@scss/components/contact/ContactForm.scss";
-import { formValidation } from "@utils/forms/formValidations"
+import { resetInputErrors, validateContactForm } from "@utils/forms/ContactFormValidations"
 
-type ValidationKeyT = 'fnameIsValid'
+export interface ContactFormI {
+    fname: string,
+    lname: string,
+    email: string,
+    phone: string,
+    message: string,
+}
 
-const FIELD_INPUT_IDS = ['fname-input']
+export interface FieldInputIdsI {
+    fnameInputId: string
+    lnameInputId: string
+    emailInputId: string
+    phoneInputId: string
+    messageInputId: string
+}
+
+const ERROR_CLASSNAME = 'warn-error'
+const FIELD_INPUT_IDS: FieldInputIdsI = {
+    fnameInputId: 'fname-input',
+    lnameInputId: 'lname-input',
+    emailInputId: 'email-input',
+    phoneInputId: 'phone-input',
+    messageInputId: 'message-input'
+}
 
 const ContactForm = () => {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<ContactFormI>({
         fname: "",
         lname: "",
         email: "",
@@ -19,48 +40,12 @@ const ContactForm = () => {
     const [formIsValid, setFormIsValid] = useState<boolean | null>(null)
     const [formIsSubmitted, setFormIsSubmitted] = useState(false)
 
-    const processFnameError = () => {
-        const input = document.getElementById('fname-input')
-        input?.classList.add('warn-error')
-    }
-
-    const resetErrors = () => {
-        FIELD_INPUT_IDS.forEach((id) => {
-            const input = document.getElementById(id)
-            input?.classList.remove('warn-error')
-        })
-    }
-
     const handleInputChange = (
         event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
-
-    const handleFieldErrorMap: Record<ValidationKeyT, () => void> = {
-        fnameIsValid: processFnameError
-    }
-
-    const handleFormValidation = () => {
-        const results = formValidation(formData)
-
-        /* checks if all fields are valid */
-        const allFieldsIsValid = Object.values(results).every(value => value);
-        if (allFieldsIsValid) return true;
-
-        /* at least one is not valid, process error for field(s) */
-        Object.entries(results).forEach(([field, isFieldValid]) => {
-            if (isFieldValid) return;
-
-            if (field in handleFieldErrorMap) {
-                const errorHandler = handleFieldErrorMap[field as ValidationKeyT]
-                errorHandler();
-            } else throw new Error('Invalid field value.')
-        })
-
-        return false
-    }
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -71,13 +56,13 @@ const ContactForm = () => {
             return
         }
 
-        /* reset form errors if they exist */
-        resetErrors()
+        /* reset form error(s) if they exist */
+        if (formIsValid !== null) resetInputErrors(FIELD_INPUT_IDS, ERROR_CLASSNAME);
 
         /* check is form is valid */
-        const isValid = handleFormValidation();
+        const isValid = validateContactForm(formData, FIELD_INPUT_IDS, ERROR_CLASSNAME);
         if (!isValid) {
-            console.log('do nothing, has error')
+            console.log('display message, has error')
             setFormIsValid(false)
             return
         }
@@ -98,30 +83,24 @@ const ContactForm = () => {
             <div className="names d-flex mt-4">
                 <span className="fname d-flex flex-column">
                     <label className="fname-label">First name</label>
-                    <input type="text" name="fname" id="fname-input" className="fname-input" placeholder="First name" onChange={handleInputChange} required />
+                    <input type="text" name="fname" id={FIELD_INPUT_IDS.fnameInputId} placeholder="First name" onChange={handleInputChange} required />
                 </span>
                 <span className="lname d-flex flex-column">
                     <label className="lname-label">Last name</label>
-                    <input type="text" name="lname" className="lname-input" placeholder="Last name" onChange={handleInputChange} required />
+                    <input type="text" name="lname" id={FIELD_INPUT_IDS.lnameInputId} placeholder="Last name" onChange={handleInputChange} required />
                 </span>
             </div>
             <div className="email d-flex flex-column mt-3">
                 <label className="email-label">E-mail</label>
-                <input type="email" name="email" className="email-input" placeholder="E-mail" onChange={handleInputChange} required />
+                <input type="email" name="email" id={FIELD_INPUT_IDS.emailInputId} placeholder="E-mail" onChange={handleInputChange} required />
             </div>
             <div className="phone d-flex flex-column mt-3">
                 <label>Phone</label>
-                <input type="phone" name="phone" placeholder="Phone" onChange={handleInputChange} />
+                <input type="phone" name="phone" id={FIELD_INPUT_IDS.phoneInputId} placeholder="Phone" onChange={handleInputChange} />
             </div>
             <div className="message d-flex flex-column mt-3">
                 <label>Message</label>
-                <input
-                    className="textArea"
-                    name="message"
-                    onChange={handleInputChange}
-                    placeholder="How can we help?"
-                    required
-                />
+                <input name="message" id={FIELD_INPUT_IDS.messageInputId} onChange={handleInputChange} placeholder="How can we help?" required />
             </div>
             <div className="text-center d-flex flex-column mt-5">
                 <button type="submit" className="submit-btn">
