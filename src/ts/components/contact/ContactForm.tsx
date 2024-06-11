@@ -4,6 +4,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import "@scss/components/contact/ContactForm.scss";
 import { formValidation } from "@utils/forms/formValidations"
 
+type ValidationKeyT = 'fnameIsValid'
+
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         fname: "",
@@ -20,9 +22,43 @@ const ContactForm = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const processFnameError = () => {
+        console.log('processing fname error')
+    }
+
+    const handleFieldErrorMap: Record<ValidationKeyT, () => void> = {
+        fnameIsValid: processFnameError
+    }
+
+    const handleFormValidation = () => {
+        const results = formValidation(formData)
+
+        /* checks if all fields are valid */
+        const formIsValid = Object.values(results).every(value => value);
+        if (formIsValid) return true;
+
+        /* at least one is not valid, process error for field(s) */
+        Object.entries(results).forEach(([field, isFieldValid]) => {
+            if (isFieldValid) return;
+
+            if (field in handleFieldErrorMap) {
+                const errorHandler = handleFieldErrorMap[field as ValidationKeyT]
+                errorHandler();
+            } else throw new Error('Invalid field value.')
+        })
+
+        return false
+    }
+
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const results = formValidation(formData)
+        const formIsValid = handleFormValidation();
+
+        if (formIsValid) {
+            console.log('ping api')
+        } else {
+            console.log('do nothing, has error')
+        }
     };
 
     return (

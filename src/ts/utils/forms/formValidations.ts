@@ -1,24 +1,16 @@
-/* matches unicoce letters (various languages), spaces, and hyphens */
 const isValidNameFormat = (str: string): boolean => {
+    /* matches unicode letters (various languages), spaces, and hyphens */
     const regex = /^[\p{L}\s-]+$/u;
 
     return regex.test(str);
 }
 
-const validateFName = (fname: string) => {
+const validateFname = (fname: string) => {
     return fname.length > 0 && isValidNameFormat(fname)
 }
 
-interface formI {
-    fname: string
-}
-
-export const formValidation = (form: formI) => {
-    const results = {
-        fnameValid: false
+export const formValidation = (formData: Record<string, string>): Record<string, boolean> => {
+    return {
+        fnameIsValid: validateFname(formData.fname)
     }
-
-    results.fnameValid = validateFName(form.fname)
-
-    return results
-}
+};
