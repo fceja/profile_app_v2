@@ -1,0 +1,14 @@
+.circle-em {
+  position: relative;
+
+  circle {
+    fill: #a7adc6;
+  }
+}
+
+.contact-info-em-svg-icon {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}

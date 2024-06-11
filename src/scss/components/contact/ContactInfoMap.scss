@@ -1,0 +1,22 @@
+.circle-map {
+  position: relative;
+
+  circle {
+    fill: #a7adc6;
+  }
+}
+
+.contact-info-map-svg-icon {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+#map {
+  border-radius: 15px;
+}
+
+.map-container {
+  margin: 10px 5px 5px 5px;
+}

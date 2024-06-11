@@ -1,0 +1,23 @@
+.circle-soc {
+  position: relative;
+
+  circle {
+    fill: #a7adc6;
+  }
+}
+
+.contact-info-soc-svg-icon {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.contact-info-social-items {
+  display: flex;
+  justify-content: center;
+
+  svg {
+    margin: 0 10px 0 10px;
+  }
+}
