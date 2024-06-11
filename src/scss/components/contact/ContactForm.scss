@@ -77,3 +77,16 @@ form input {
         border-color: rgb(162, 162, 162);
     }
 }
+
+
+/* error handling */
+$red-error-color: rgb(255, 0, 0);
+
+.invalid-form-message {
+    color: $red-error-color;
+}
+
+.warn-error {
+    border-style: solid;
+    border-color: $red-error-color;
+}

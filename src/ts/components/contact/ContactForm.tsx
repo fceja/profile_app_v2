@@ -6,6 +6,8 @@ import { formValidation } from "@utils/forms/formValidations"
 
 type ValidationKeyT = 'fnameIsValid'
 
+const FIELD_INPUT_IDS = ['fname-input']
+
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         fname: "",
@@ -14,6 +16,20 @@ const ContactForm = () => {
         phone: "",
         message: "",
     });
+    const [formIsValid, setFormIsValid] = useState<boolean | null>(null)
+    const [formIsSubmitted, setFormIsSubmitted] = useState(false)
+
+    const processFnameError = () => {
+        const input = document.getElementById('fname-input')
+        input?.classList.add('warn-error')
+    }
+
+    const resetErrors = () => {
+        FIELD_INPUT_IDS.forEach((id) => {
+            const input = document.getElementById(id)
+            input?.classList.remove('warn-error')
+        })
+    }
 
     const handleInputChange = (
         event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,10 +37,6 @@ const ContactForm = () => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
-
-    const processFnameError = () => {
-        console.log('processing fname error')
-    }
 
     const handleFieldErrorMap: Record<ValidationKeyT, () => void> = {
         fnameIsValid: processFnameError
@@ -34,8 +46,8 @@ const ContactForm = () => {
         const results = formValidation(formData)
 
         /* checks if all fields are valid */
-        const formIsValid = Object.values(results).every(value => value);
-        if (formIsValid) return true;
+        const allFieldsIsValid = Object.values(results).every(value => value);
+        if (allFieldsIsValid) return true;
 
         /* at least one is not valid, process error for field(s) */
         Object.entries(results).forEach(([field, isFieldValid]) => {
@@ -52,13 +64,28 @@ const ContactForm = () => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const formIsValid = handleFormValidation();
 
-        if (formIsValid) {
-            console.log('ping api')
-        } else {
-            console.log('do nothing, has error')
+        /* if form already submitted, do nothing */
+        if (formIsSubmitted) {
+            console.log('form already submitted')
+            return
         }
+
+        /* reset form errors if they exist */
+        resetErrors()
+
+        /* check is form is valid */
+        const isValid = handleFormValidation();
+        if (!isValid) {
+            console.log('do nothing, has error')
+            setFormIsValid(false)
+            return
+        }
+
+        /* form is valid, submit */
+        setFormIsValid(true)
+        setFormIsSubmitted(true)
+        console.log('ping api')
     };
 
     return (
@@ -71,7 +98,7 @@ const ContactForm = () => {
             <div className="names d-flex mt-4">
                 <span className="fname d-flex flex-column">
                     <label className="fname-label">First name</label>
-                    <input type="text" name="fname" className="fname-input" placeholder="First name" onChange={handleInputChange} required />
+                    <input type="text" name="fname" id="fname-input" className="fname-input" placeholder="First name" onChange={handleInputChange} required />
                 </span>
                 <span className="lname d-flex flex-column">
                     <label className="lname-label">Last name</label>
@@ -100,6 +127,7 @@ const ContactForm = () => {
                 <button type="submit" className="submit-btn">
                     Submit
                 </button>
+                <span className="invalid-form-message" style={{ visibility: formIsValid === false ? 'visible' : 'hidden' }}>Invalid field(s)</span>
             </div>
         </form>
     );
