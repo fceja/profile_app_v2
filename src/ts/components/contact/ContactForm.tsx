@@ -39,6 +39,21 @@ const ContactForm = () => {
     });
     const [formIsValid, setFormIsValid] = useState<boolean | null>(null)
     const [formIsSubmitted, setFormIsSubmitted] = useState(false)
+    const [phoneNum, setPhoneNum] = useState('');
+
+    const formatPhoneNumber = (value: string) => {
+        // remove non-numeric characters
+        value = value.replace(/\D/g, '');
+
+        // formatting
+        if (value.length > 3 && value.length <= 6) {
+            value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+        } else if (value.length > 6) {
+            value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
+        }
+
+        return value;
+    };
 
     const handleInputChange = (
         event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -46,6 +61,10 @@ const ContactForm = () => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
+
+    const handlePhoneInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setPhoneNum(formatPhoneNumber(event.target.value))
+    }
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -96,7 +115,7 @@ const ContactForm = () => {
             </div>
             <div className="phone d-flex flex-column mt-3">
                 <label>Phone</label>
-                <input type="phone" name="phone" id={FIELD_INPUT_IDS.phoneInputId} placeholder="Phone" onChange={handleInputChange} />
+                <input type="phone" name="phone" value={phoneNum} id={FIELD_INPUT_IDS.phoneInputId} placeholder="Phone" onChange={handlePhoneInputChange} />
             </div>
             <div className="message d-flex flex-column mt-3">
                 <label>Message</label>
