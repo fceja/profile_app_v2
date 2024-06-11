@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import "@scss/pages/layout/PageLayout.scss"
+import Footer from "@components/layout/Footer"
 import Navbar from "@components/layout/nav/Navbar"
 
 interface LayoutI {
@@ -21,6 +22,7 @@ const Layout: React.FC<LayoutI> = (props) => {
         <div className="page-layout" >
             <Navbar />
             {children}
+            <Footer />
         </div>
     );
 };
