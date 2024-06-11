@@ -2,7 +2,6 @@
 
 form {
     padding: 15px 30px;
-
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
@@ -19,7 +18,6 @@ form input {
     border-style: solid;
     border-color: rgb(172, 172, 172);
     padding: 5px 0 5px 10px;
-
     font-weight: 600;
 
     &::placeholder {
@@ -36,10 +34,10 @@ form input {
 }
 
 .message2 {
-    color: rgba(131, 131, 131, 0.849);
+    color: rgba(112, 112, 112, 0.849);
     font-size: 1em;
     font-weight: 300;
-    letter-spacing: -1.2px;
+    letter-spacing: -.7px;
 }
 
 .names {
@@ -57,12 +55,25 @@ form input {
 
 .email-message {
     text-align: center;
-    color: rgb(203, 203, 203);
+    color: rgb(188, 188, 188);
     font-weight: 300;
     letter-spacing: -.7px;
+    font-size: .9em;
 }
 
 .submit-btn {
+    color: white;
     padding: 8px 0 8px 0;
     border-radius: 15px;
+    background-color: rgb(22, 181, 181);
+    border-style: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    &:hover {
+        background-color: white;
+        color: rgb(22, 181, 181);
+        border-style: solid;
+        border-color: rgb(162, 162, 162);
+    }
 }
