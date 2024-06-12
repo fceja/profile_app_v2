@@ -113,25 +113,39 @@ const ContactForm = () => {
                 <div className="message2">You can reach us anytime.</div>
                 <span className="email-message">We&#39;ll never share your info.</span>
             </span>
-            <div className="names d-flex mt-4">
+            <div className="names mt-2">
                 <span className="fname d-flex flex-column">
-                    <label className="fname-label">First name</label>
-                    <input type="text" name="fname" id={FIELD_INPUT_IDS.fnameInputId} placeholder="First name" onChange={handleInputChange} required />
-                </span>
-                <span className="lname d-flex flex-column">
-                    <label className="lname-label">Last name</label>
-                    <input type="text" name="lname" id={FIELD_INPUT_IDS.lnameInputId} placeholder="Last name" onChange={handleInputChange} required />
+                    <label className="fname-label">Full name</label>
+                    <input
+                        type="text"
+                        name="fname"
+                        id={FIELD_INPUT_IDS.fnameInputId}
+                        onChange={handleInputChange}
+                        required
+                    />
                 </span>
             </div>
-            <div className="email d-flex flex-column mt-3">
+            <div className="email d-flex flex-column mt-2">
                 <label className="email-label">E-mail</label>
-                <input type="email" name="email" id={FIELD_INPUT_IDS.emailInputId} placeholder="E-mail" onChange={handleInputChange} required />
+                <input
+                    type="email"
+                    name="email"
+                    id={FIELD_INPUT_IDS.emailInputId}
+                    onChange={handleInputChange}
+                    required
+                />
             </div>
-            <div className="phone d-flex flex-column mt-3">
+            <div className="phone d-flex flex-column mt-2">
                 <label>Phone</label>
-                <input type="phone" name="phone" value={phoneNum} id={FIELD_INPUT_IDS.phoneInputId} placeholder="Phone" onChange={handlePhoneInputChange} />
+                <input
+                    type="phone"
+                    name="phone"
+                    value={phoneNum}
+                    id={FIELD_INPUT_IDS.phoneInputId}
+                    onChange={handlePhoneInputChange}
+                />
             </div>
-            <div className="message d-flex flex-column mt-3">
+            <div className="message d-flex flex-column mt-2">
                 <label>Message</label>
                 <textarea
                     name="message"
@@ -140,17 +154,24 @@ const ContactForm = () => {
                     aria-label="Message Text Area"
                     onChange={handleTextAreaInputChange}
                     placeholder="How can we help?"
-                    rows={5}
                     maxLength={MAX_LEN_TEXTAREA}
                     required
                 />
                 <div className="message-count">{charCount} / {MAX_LEN_TEXTAREA}</div>
             </div>
-            <div className="text-center d-flex flex-column mt-5">
+            <div className="text-center d-flex flex-column mt-3">
                 <button type="submit" className="submit-btn">
                     Submit
                 </button>
-                <span className="invalid-form-message" style={{ visibility: formIsValid === false ? 'visible' : 'hidden' }}>Invalid field(s)</span>
+                <span
+                    className="invalid-form-message"
+                    style={{
+                        visibility: formIsValid === false ? 'visible' : 'hidden'
+
+                    }}
+                >
+                    Invalid field(s)
+                </span>
             </div>
         </form>
     );

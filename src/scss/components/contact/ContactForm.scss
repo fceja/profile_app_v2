@@ -1,16 +1,29 @@
 @import "@scss/Variables.scss";
 
-form {
-    padding: 15px 30px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    width: 50%;
-}
-
 $placeholder-color: rgb(198, 198, 198);
 $placeholder-font-weight: 300;
 $placeholder-letter-spacing: -.3px;
 $form-border-color: rgb(198, 198, 198);
 $form-border-radius: 15px;
+
+form {
+    padding: 15px 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    max-width: 450px;
+    margin: 0 auto 0 auto;
+}
+
+@media (min-width: $breakpoint-md) {
+    form {
+        width: 50%;
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    form {
+        width: 100%;
+    }
+}
 
 form label {
     color: teal;
@@ -26,6 +39,7 @@ form input {
     border-color: $form-border-color;
     padding: 5px 0 5px 10px;
     font-weight: 600;
+    height: 35px;
 
     &::placeholder {
         color: $placeholder-color;
@@ -50,15 +64,19 @@ form input {
 
 .names {
     padding: 0 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 20px;
+}
 
-    .fname {
-        min-width: 220px;
-    }
+.fname {
 
-    .lname {
-        min-width: 220px;
-        margin: 0 0 0 20px;
-    }
+    flex-grow: 1;
+}
+
+.lname {
+    flex-grow: 1;
 }
 
 .email-message {
@@ -87,7 +105,7 @@ form input {
 }
 
 .message-count {
-    margin: 10px 0 0 0;
+    margin: 5px 0 0 0;
     color: rgb(185, 184, 184);
     text-align: right;
     font-weight: 300;
@@ -99,8 +117,8 @@ form input {
     border-width: 2px;
     padding: 5px 5px 5px 10px;
     border-radius: 5px;
-    min-height: 100px;
-    max-height: 350px;
+    min-height: 40px;
+    max-height: 175px;
 
     &::placeholder {
         color: $placeholder-color;

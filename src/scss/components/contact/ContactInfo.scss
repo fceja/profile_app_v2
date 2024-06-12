@@ -1,13 +1,22 @@
 @import "@scss/Variables.scss";
 
 .contact-info {
-    width: 40%;
-    display: flex;
-    justify-content: center;
+    margin: 0 auto 0 auto;
+}
+
+@media (min-width: $breakpoint-md) {
+    .contact-info {
+        width: 40%;
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    .contact-info {
+        width: 100%;
+    }
 }
 
 .div-box-outer {
-    margin: 30px 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
