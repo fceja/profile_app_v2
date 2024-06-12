@@ -5,6 +5,12 @@ form {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
 }
 
+$placeholder-color: rgb(198, 198, 198);
+$placeholder-font-weight: 300;
+$placeholder-letter-spacing: -.3px;
+$form-border-color: rgb(198, 198, 198);
+$form-border-radius: 15px;
+
 form label {
     color: teal;
     padding: 0 0 0 10px;
@@ -14,15 +20,16 @@ form label {
 
 form input {
     color: rgb(143, 143, 143);
-    border-radius: 15px;
+    border-radius: $form-border-radius;
     border-style: solid;
-    border-color: rgb(172, 172, 172);
+    border-color: $form-border-color;
     padding: 5px 0 5px 10px;
     font-weight: 600;
 
     &::placeholder {
-        color: rgb(172, 172, 172);
-        border-color: rgb(172, 172, 172);
+        color: $placeholder-color;
+        font-weight: $placeholder-font-weight;
+        letter-spacing: $placeholder-letter-spacing
     }
 }
 
@@ -64,7 +71,7 @@ form input {
 .submit-btn {
     color: white;
     padding: 8px 0 8px 0;
-    border-radius: 15px;
+    border-radius: $form-border-radius;
     background-color: rgb(22, 181, 181);
     border-style: none;
     font-weight: 600;
@@ -75,6 +82,29 @@ form input {
         color: rgb(22, 181, 181);
         border-style: solid;
         border-color: rgb(162, 162, 162);
+    }
+}
+
+.message-count {
+    margin: 10px 0 0 0;
+    color: rgb(185, 184, 184);
+    text-align: right;
+    font-weight: 300;
+    letter-spacing: -.8px;
+}
+
+.message-textarea {
+    border-color: $form-border-color;
+    border-width: 2px;
+    padding: 5px 5px 5px 10px;
+    border-radius: 5px;
+    min-height: 100px;
+    max-height: 350px;
+
+    &::placeholder {
+        color: $placeholder-color;
+        font-weight: $placeholder-font-weight;
+        letter-spacing: $placeholder-letter-spacing
     }
 }
 

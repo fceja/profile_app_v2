@@ -1,5 +1,4 @@
-
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 import "@scss/components/contact/ContactForm.scss";
 import { resetInputErrors, validateContactForm } from "@utils/forms/ContactFormValidations"
@@ -17,7 +16,7 @@ export interface FieldInputIdsI {
     lnameInputId: string
     emailInputId: string
     phoneInputId: string
-    messageInputId: string
+    messageTextAreaId: string
 }
 
 const ERROR_CLASSNAME = 'warn-error'
@@ -26,8 +25,10 @@ const FIELD_INPUT_IDS: FieldInputIdsI = {
     lnameInputId: 'lname-input',
     emailInputId: 'email-input',
     phoneInputId: 'phone-input',
-    messageInputId: 'message-input'
+    messageTextAreaId: 'message-textarea'
 }
+const MAX_LEN_TEXTAREA = 1000;
+
 
 const ContactForm = () => {
     const [formData, setFormData] = useState<ContactFormI>({
@@ -40,6 +41,12 @@ const ContactForm = () => {
     const [formIsValid, setFormIsValid] = useState<boolean | null>(null)
     const [formIsSubmitted, setFormIsSubmitted] = useState(false)
     const [phoneNum, setPhoneNum] = useState('');
+    const [message, setMessage] = useState('');
+    const [charCount, setCharCount] = useState(0);
+
+    useEffect(() => {
+        setCharCount(message.length);
+    }, [message]);
 
     const formatPhoneNumber = (value: string) => {
         // remove non-numeric characters
@@ -65,6 +72,13 @@ const ContactForm = () => {
     const handlePhoneInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setPhoneNum(formatPhoneNumber(event.target.value))
     }
+
+    const handleTextAreaInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        const newValue = event.target.value;
+        if (newValue.length <= MAX_LEN_TEXTAREA) {
+            setMessage(newValue);
+        }
+    };
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -119,7 +133,18 @@ const ContactForm = () => {
             </div>
             <div className="message d-flex flex-column mt-3">
                 <label>Message</label>
-                <input name="message" id={FIELD_INPUT_IDS.messageInputId} onChange={handleInputChange} placeholder="How can we help?" required />
+                <textarea
+                    name="message"
+                    id={FIELD_INPUT_IDS.messageTextAreaId}
+                    className="message-textarea"
+                    aria-label="Message Text Area"
+                    onChange={handleTextAreaInputChange}
+                    placeholder="How can we help?"
+                    rows={5}
+                    maxLength={MAX_LEN_TEXTAREA}
+                    required
+                />
+                <div className="message-count">{charCount} / {MAX_LEN_TEXTAREA}</div>
             </div>
             <div className="text-center d-flex flex-column mt-5">
                 <button type="submit" className="submit-btn">
