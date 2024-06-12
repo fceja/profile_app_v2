@@ -6,10 +6,14 @@ import ContactInfoSocial from "@components/contact/ContactInfoSocial";
 
 const ContactInfo = () => {
     return (
-        <div className="contact-info">
-            <ContactInfoPhone />
-            <ContactInfoEmail />
-            <ContactInfoSocial />
+        <div className="contact-info d-flex flex-column">
+            <div className="div-box-outer">
+                <span className="span-box">
+                    <ContactInfoPhone />
+                    <ContactInfoEmail />
+                    <ContactInfoSocial />
+                </span>
+            </div>
             <ContactInfoMap />
         </div>
     );

@@ -1,14 +1,17 @@
-.circle-em {
-  position: relative;
-
-  circle {
-    fill: #a7adc6;
-  }
+.info-email-container {
+  margin: 30px 0 0 0;
+  color: rgb(85, 85, 85);
+  height: 30px;
+  display: flex;
+  align-items: center;
 }
 
-.contact-info-em-svg-icon {
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+.info-email-svg {
+  fill: rgb(85, 85, 85);
+  height: 100%;
+}
+
+.info-email {
+  text-align: center;
+  width: 100%;
 }

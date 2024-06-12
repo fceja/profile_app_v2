@@ -1,16 +1,17 @@
 @import "@scss/Variables.scss";
 
-.contact-info-form-container {
+.contact-page {
   box-sizing: border-box;
   height: 100%;
   align-items: center;
   display: flex;
   flex: 1;
   justify-content: center;
+  gap: 40px;
 }
 
 @media (max-width: $breakpoint-sm) {
-  .contact-info-form-container {
+  .contact-page {
     flex-direction: column;
   }
 }
