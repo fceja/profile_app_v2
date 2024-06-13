@@ -53,7 +53,6 @@ const HamburgerMenu = () => {
 
     const handleOnClick = () => {
         updateMenuVisibility();
-        // ScrollToTop();
     };
 
     return (
@@ -69,22 +68,25 @@ const HamburgerMenu = () => {
                 </div>
             </div>
             <div className={menuClass} ref={menuRef}>
-                <Link className="ham-menu-btn-link" to="/" onClick={handleOnClick}>
-                    Home
+                <Link
+                    className="ham-menu-btn-link"
+                    to="/"
+                    onClick={handleOnClick}>
+                    HOME
                 </Link>
                 <Link
                     className="ham-menu-btn-link"
                     to="/gallery"
                     onClick={handleOnClick}
                 >
-                    Gallery
+                    GALLERY
                 </Link>
                 <Link
-                    className="ham-menu-btn-link ham-menu-btn-link-contact"
+                    className="ham-menu-btn-link"
                     to="/contact"
                     onClick={handleOnClick}
                 >
-                    Contact Us
+                    CONTACT US
                 </Link>
             </div>
         </>

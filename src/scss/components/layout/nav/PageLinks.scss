@@ -60,9 +60,8 @@ $default-whitesmoke: whitesmoke;
 }
 
 .btn-link:hover {
-  color: $default-white;
-  background-color: $default-teal;
-  border-color: $default-white;
+  color: rgb(101, 101, 101);
+  border: 1px solid $default-teal;
 }
 
 .btn-link:active,

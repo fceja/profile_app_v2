@@ -114,10 +114,11 @@ $menu-bar-container-width: calc($menu-bar-container-height / 1.25);
 // button styling
 .ham-menu-btn-link {
   text-align: center;
-  background-color: transparent;
+  background-color: white;
   border: 2px solid #1a1a1a;
   border-radius: 5px;
-  color: $default-teal;
+  border-width: 1.3px;
+  color: rgb(136, 136, 136);
   border-color: $default-teal;
   cursor: pointer;
   display: inline-block;
@@ -130,13 +131,10 @@ $menu-bar-container-width: calc($menu-bar-container-height / 1.25);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100px;
+  width: 120px;
   will-change: transform;
-
-  &-contact {
-    background-color: $default-teal;
-    color: $default-white;
-  }
+  font-weight: 200;
+  letter-spacing: -1px;
 }
 
 .ham-menu-btn-link:disabled {
@@ -144,19 +142,16 @@ $menu-bar-container-width: calc($menu-bar-container-height / 1.25);
 }
 
 .ham-menu-btn-link:hover {
-  color: $default-white;
-  background-color: $default-teal;
   border-color: $default-white;
-
+  border-color: $default-teal;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .ham-menu-btn-link-contact:hover {
   color: $default-teal;
   background-color: $default-white;
   border-color: $default-teal;
-
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
