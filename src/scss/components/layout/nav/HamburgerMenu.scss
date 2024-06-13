@@ -99,9 +99,7 @@ $menu-bar-container-width: calc($menu-bar-container-height / 1.25);
 // NOTE - changes here will require updates in NavPageLinks.scss -> .nav-page-links-container
 @media (max-width: $breakpoint-md) {
   .hamburger-menu-container {
-    margin-right: 4%;
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100%;
   }

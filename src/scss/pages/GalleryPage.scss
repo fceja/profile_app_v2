@@ -17,8 +17,8 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 
 // Container styles
 .app-react-image-gallery {
-    height: 65vh;
     width: 100%;
+    height: 100%;
 }
 
 // SVG ICON STYLES
@@ -45,7 +45,6 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     }
 
     &:focus {
-        // a11y support
         outline: 2px solid $ig-blue;
     }
 }

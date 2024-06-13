@@ -5,8 +5,8 @@ import PageLinks from "@components/layout/nav/PageLinks";
 const NavBar = () => {
   return (
     <nav className="nav-bar-container" id="id-nav-bar">
-      <span className="company-name">POPS & SONS ELECTRIC</span>
       <HamburgerMenu />
+      <span className="company-name">POPS & SONS ELECTRIC</span>
       <PageLinks />
     </nav>
   );
