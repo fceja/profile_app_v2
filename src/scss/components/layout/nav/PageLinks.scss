@@ -1,3 +1,5 @@
+@import "@scss/Variables.scss";
+
 $default-teal: teal;
 $default-error-red: rgb(212, 5, 5);
 $default-light-gray: rgb(218, 214, 214);
@@ -8,14 +10,14 @@ $default-whitesmoke: whitesmoke;
 
 // toggle visiblity of nav links
 // NOTE - changes here will require updates in HamburgerMenu.scss -> .hamburger-menu-container, .visible
-@media (max-width: 619px) {
+@media (max-width: $breakpoint-md) {
   .nav-page-links-container {
     display: none;
     width: 100%
   }
 }
 
-@media (min-width: 620px) {
+@media (min-width: calc(#{$breakpoint-md} + 1px)) {
   .nav-page-links-container {
     display: flex;
     align-items: center;

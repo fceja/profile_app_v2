@@ -1,8 +1,7 @@
 .phone-container {
   color: rgb(85, 85, 85);
   height: 30px;
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .phone-svg {
@@ -11,6 +10,5 @@
 }
 
 .phone-num {
-  text-align: center;
-  width: 100%;
+  margin: 0 0 0 15px;
 }

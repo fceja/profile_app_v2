@@ -1,9 +1,8 @@
 .info-email-container {
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
   color: rgb(85, 85, 85);
   height: 30px;
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .info-email-svg {
@@ -12,6 +11,7 @@
 }
 
 .info-email {
+  margin: 0 0 0 15px;
   text-align: center;
   width: 100%;
 }
