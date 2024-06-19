@@ -31,11 +31,13 @@ const HamburgerMenu = () => {
     /* adds click listener if hamburger menu is opened */
     useEffect(() => {
         if (isMenuClicked) {
-            document.addEventListener("click", handleClickOutsideMenu, true);
+            // document.addEventListener("click", handleClickOutsideMenu);
+            document.addEventListener("click", handleClickOutsideMenu);
         } else {
-            document.removeEventListener("click", handleClickOutsideMenu, true);
+            document.removeEventListener("click", handleClickOutsideMenu);
         }
-    });
+    }, [isMenuClicked]);
+
 
     /* update hamburger menu visibility */
     const updateMenuVisibility = () => {

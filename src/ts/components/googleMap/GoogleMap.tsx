@@ -31,7 +31,7 @@ const GoogleMap = () => {
   if (!apiKey) return errorDiv;
 
   return (
-    <div className="map-container">
+    <div className="gmap-container">
       <Wrapper apiKey={apiKey} render={render}>
         <MyMapComponent center={center} zoom={zoom} styles={styles} />
       </Wrapper>

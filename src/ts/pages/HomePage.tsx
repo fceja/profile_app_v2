@@ -4,7 +4,7 @@ import CardSlider from "@components/home/CardSlider"
 
 export default function HomePage() {
     return (
-        <div className="home-page-div">
+        <main className="home-page-div">
             <Hero />
             <div className="content-div">
                 <section className="comp-info">
@@ -21,6 +21,6 @@ export default function HomePage() {
                     < CardSlider />
                 </section>
             </div>
-        </div>
+        </main>
     );
 }

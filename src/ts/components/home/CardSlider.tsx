@@ -1,33 +1,6 @@
 import "@scss/components/home/CardSlider.scss";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-
-const cards =
-  [
-    {
-      image: "src/assets/clients/PaniniKabobGrill.png",
-      title: "Title 1",
-      description: "Panini Kabob Grill",
-      urlLink: "https://paninikabobgrill.com/",
-    },
-    {
-      image: "src/assets/PopsAndSonsElectricLogo.png",
-      title: "Pops & Sons",
-      description: "Test",
-      urlLink: "todo",
-    },
-    {
-      image: "src/assets/PopsAndSonsElectricLogo.png",
-      title: "Pops & Sons",
-      description: "Test",
-      urlLink: "todo",
-    },
-    {
-      image: "src/assets/PopsAndSonsElectricLogo.png",
-      title: "Pops & Sons",
-      description: "Test",
-      urlLink: "todo",
-    },
-  ]
+import { cardsContent } from "@content/HomeContent"
 
 const CardSlider = () => {
   const handleClick = (direction: string) => {
@@ -49,7 +22,7 @@ const CardSlider = () => {
     <div id="main-slider-container">
       <MdChevronLeft className="left-slider-icon" onClick={() => { handleClick('left') }} />
       <div id="slider">
-        {cards.map((slide, index) => {
+        {cardsContent.map((slide, index) => {
           return (
             <div key={index} className="card">
               <a className="card-link-container" href={slide.urlLink} target="_blank" rel="noreferrer">
