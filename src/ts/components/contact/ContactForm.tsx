@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 import "@scss/components/contact/ContactForm.scss";
+import AxiosClient from "@utils/axiosClient/AxiosClient";
 import { resetInputErrors, validateContactForm } from "@utils/forms/ContactFormValidations"
 
 export interface ContactFormI {
     fname: string,
-    lname: string,
     email: string,
     phone: string,
     message: string,
@@ -13,7 +13,6 @@ export interface ContactFormI {
 
 export interface FieldInputIdsI {
     fnameInputId: string
-    lnameInputId: string
     emailInputId: string
     phoneInputId: string
     messageTextAreaId: string
@@ -22,7 +21,6 @@ export interface FieldInputIdsI {
 const ERROR_CLASSNAME = 'warn-error'
 const FIELD_INPUT_IDS: FieldInputIdsI = {
     fnameInputId: 'fname-input',
-    lnameInputId: 'lname-input',
     emailInputId: 'email-input',
     phoneInputId: 'phone-input',
     messageTextAreaId: 'message-textarea'
@@ -33,7 +31,6 @@ const MAX_LEN_TEXTAREA = 1000;
 const ContactForm = () => {
     const [formData, setFormData] = useState<ContactFormI>({
         fname: "",
-        lname: "",
         email: "",
         phone: "",
         message: "",
@@ -103,8 +100,24 @@ const ContactForm = () => {
         /* form is valid, submit */
         setFormIsValid(true)
         setFormIsSubmitted(true)
-        console.log('ping api')
+        submitForm()
     };
+
+    const submitForm = () => {
+        console.log('Submitting form')
+        AxiosClient.post("/email/send", {
+            contactName: formData.fname,
+            contactEmail: formData.email,
+            contactEmailMessage: formData.message,
+        })
+            .then((resp) => {
+                console.log('Successfull')
+                console.log("resp: ", resp);
+            })
+            .catch(() => {
+                console.error('Error submitting form.')
+            })
+    }
 
     return (
         <form onSubmit={handleSubmit}>

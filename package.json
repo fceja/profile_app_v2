@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@googlemaps/react-wrapper": "github:googlemaps/react-wrapper",
+    "axios": "^1.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
@@ -18,6 +19,7 @@
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/google.maps": "^3.55.9",
     "@types/node": "^20.14.2",
     "@types/react": "^18.2.66",

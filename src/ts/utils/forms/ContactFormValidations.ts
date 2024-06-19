@@ -8,7 +8,7 @@ const isValidNameFormat = (str: string): boolean => {
 }
 
 const validateName = (name: string) => {
-    /* validate first or last name */
+    /* validate full name */
     return name.length > 0 && isValidNameFormat(name)
 }
 
@@ -65,9 +65,6 @@ export const validateContactForm = (formData: ContactFormI, fieldInputIds: Field
     /* input validations */
     const fnameValid = validateName(formData.fname)
     if (!fnameValid) erroredInputIds.push(fieldInputIds.fnameInputId)
-
-    const lnameValid = validateName(formData.lname)
-    if (!lnameValid) erroredInputIds.push(fieldInputIds.lnameInputId)
 
     const emailValid = validateEmail(formData.email)
     if (!emailValid) erroredInputIds.push(fieldInputIds.emailInputId)
