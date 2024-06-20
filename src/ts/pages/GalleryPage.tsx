@@ -1,18 +1,18 @@
 import { lazy, Suspense } from "react";
 
 import "@scss/pages/GalleryPage.scss";
-import Loading from "@common/components/Loading";
 import { imageData } from "@content/GalleryContent"
+import Loading from "@common/components/Loading";
 
 const ImageGallery = lazy(() => import("react-image-gallery"));
 
 const MyImageGallery = () => {
     return (
-        <Suspense fallback={<Loading />}>
-            <main className="app-react-image-gallery mt-3 mb-3">
+        <main className="app-react-image-gallery mt-3">
+            <Suspense fallback={<Loading className="image-gallery" />}>
                 <ImageGallery items={imageData} />
-            </main>
-        </Suspense>
+            </Suspense>
+        </main>
     );
 };
 

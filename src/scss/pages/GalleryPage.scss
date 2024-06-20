@@ -15,135 +15,51 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     }
 }
 
-// Container styles
 .app-react-image-gallery {
-    width: 100%;
-    height: 100%;
+    margin: 0 auto 0 auto;
+    position: relative;
 }
 
-// SVG ICON STYLES
-.image-gallery-icon {
-    color: $ig-white;
-    transition: all 0.3s ease-out;
-    appearance: none;
-    background-color: transparent;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-    position: absolute;
-    z-index: 1;
-    filter: drop-shadow($ig-shadow);
-
-    @media (hover: hover) and (pointer: fine) {
-        &:hover {
-            color: $ig-blue;
-
-            .image-gallery-svg {
-                transform: scale(1.1);
-            }
-        }
+@media(max-width: 300px) {
+    .app-react-image-gallery {
+        min-height: 250px;
+        max-height: 250px;
     }
 
-    &:focus {
-        outline: 2px solid $ig-blue;
+}
+
+@media(min-width: 301px) and (max-width: $breakpoint-sm) {
+    .app-react-image-gallery {
+        min-height: 420px;
+        max-height: 420px;
     }
 }
 
-.image-gallery-using-mouse {
-    .image-gallery-icon {
-        &:focus {
-            outline: none;
-        }
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    .app-react-image-gallery {
+        min-height: 530px;
+        max-height: 530px;
     }
 }
 
-.image-gallery-fullscreen-button,
-.image-gallery-play-button {
-    bottom: 0;
-    padding: 20px;
-
-    .image-gallery-svg {
-        height: 28px;
-        width: 28px;
-    }
-
-    @media (max-width: $ig-small-screen) {
-        padding: 15px;
-
-        .image-gallery-svg {
-            height: 24px;
-            width: 24px;
-        }
-    }
-
-    @media (max-width: $ig-xsmall-screen) {
-        padding: 10px;
-
-        .image-gallery-svg {
-            height: 16px;
-            width: 16px;
-        }
+@media (min-width: $breakpoint-md) {
+    .app-react-image-gallery {
+        min-height: 610px;
+        max-height: 610px;
+        max-width: 900px;
     }
 }
-
-.image-gallery-fullscreen-button {
-    right: 0;
-}
-
-.image-gallery-play-button {
-    left: 0;
-}
-
-.image-gallery-left-nav,
-.image-gallery-right-nav {
-    padding: 50px 10px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    .image-gallery-svg {
-        height: 120px;
-        width: 60px;
-    }
-
-    @media (max-width: $ig-small-screen) {
-        .image-gallery-svg {
-            height: 72px;
-            width: 36px;
-        }
-    }
-
-    @media (max-width: $ig-xsmall-screen) {
-        .image-gallery-svg {
-            height: 48px;
-            width: 24px;
-        }
-    }
-
-    &[disabled] {
-        cursor: disabled;
-        opacity: 0.6;
-        pointer-events: none;
-    }
-}
-
-.image-gallery-left-nav {
-    left: 0;
-}
-
-.image-gallery-right-nav {
-    right: 0;
-}
-
-// End of Icon styles
 
 .image-gallery {
     @include vendor-prefix("user-select", none);
     -webkit-tap-highlight-color: $ig-transparent;
     width: 100%;
     height: 100%;
+    background-color: rgb(255, 255, 255);
 
     &.fullscreen-modal {
         background: $ig-black;
+        background-color: $ig-black;
         bottom: 0;
         height: 100%;
         left: 0;
@@ -173,13 +89,14 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     &.image-gallery-thumbnails-right {
         .image-gallery-slide .image-gallery-image {
             max-height: 100%;
+            display: none;
         }
     }
 }
 
 .image-gallery-slide-wrapper {
-    height: 80%;
     position: relative; // for arrows
+    cursor: default;
 
     &.image-gallery-thumbnails-left,
     &.image-gallery-thumbnails-right {
@@ -206,16 +123,15 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 }
 
 .image-gallery-slides {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     position: relative;
     overflow: hidden;
-    max-height: 100%;
-    min-height: 100%;
-    width: 100%;
 }
 
-.loading-div {
-    height: 100%;
+.image-gallery-image {
+    background-color: black;
+    width: 80%;
+    cursor: default;
 }
 
 .image-gallery-slide {
@@ -225,26 +141,19 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    cursor: default;
+    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+
+    &.image-gallery-left,
+    &.image-gallery-right {
+        display: none;
+        position: absolute;
+        z-index: -1;
+    }
 
     &.image-gallery-center {
         position: relative;
-    }
-
-    &:not(.image-gallery-center, .image-gallery-left, .image-gallery-right) {
-        // this removes chain of images displayed when slide goes from first image to last image.
-        display: none !important;
-    }
-
-    div.image-gallery-slide-wrapper {
-        display: none !important;
-    }
-
-    .image-gallery-image {
-        background-color: black;
-        width: 100%;
-        object-fit: contain;
-        max-height: 100%;
-        min-height: 100%;
     }
 
     .image-gallery-description {
@@ -338,7 +247,6 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     }
 
     .image-gallery-thumbnails-container {
-        cursor: pointer;
         text-align: center;
         white-space: nowrap;
         height: 100%;
@@ -566,4 +474,117 @@ input.app-interval-input {
 
 .app-checkboxes li {
     display: block;
+}
+
+/* svg icon styles */
+.image-gallery-icon {
+    color: $ig-white;
+    transition: all 0.3s ease-out;
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    z-index: 1;
+    filter: drop-shadow($ig-shadow);
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            color: $ig-blue;
+
+            .image-gallery-svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &:focus {
+        outline: 2px solid $ig-blue;
+    }
+}
+
+.image-gallery-using-mouse {
+    .image-gallery-icon {
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.image-gallery-fullscreen-button,
+.image-gallery-play-button {
+    bottom: 0;
+    padding: 20px;
+
+    .image-gallery-svg {
+        height: 28px;
+        width: 28px;
+    }
+
+    @media (max-width: $ig-small-screen) {
+        padding: 15px;
+
+        .image-gallery-svg {
+            height: 24px;
+            width: 24px;
+        }
+    }
+
+    @media (max-width: $ig-xsmall-screen) {
+        padding: 10px;
+
+        .image-gallery-svg {
+            height: 16px;
+            width: 16px;
+        }
+    }
+}
+
+.image-gallery-fullscreen-button {
+    right: 0;
+}
+
+.image-gallery-play-button {
+    left: 0;
+}
+
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+    padding: 50px 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .image-gallery-svg {
+        height: 120px;
+        width: 60px;
+    }
+
+    @media (max-width: $ig-small-screen) {
+        .image-gallery-svg {
+            height: 72px;
+            width: 36px;
+        }
+    }
+
+    @media (max-width: $ig-xsmall-screen) {
+        .image-gallery-svg {
+            height: 48px;
+            width: 24px;
+        }
+    }
+
+    &[disabled] {
+        cursor: disabled;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+}
+
+.image-gallery-left-nav {
+    left: 0;
+}
+
+.image-gallery-right-nav {
+    right: 0;
 }
