@@ -178,10 +178,7 @@ const ContactForm = () => {
                 </button>
                 <span
                     className="invalid-form-message"
-                    style={{
-                        visibility: formIsValid === false ? 'visible' : 'hidden'
-
-                    }}
+                    style={{ visibility: formIsValid === false ? 'visible' : 'hidden' }}
                 >
                     Invalid field(s)
                 </span>

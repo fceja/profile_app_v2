@@ -9,10 +9,8 @@ const ContactForm = lazy(() => import("@components/contact/ContactForm"));
 export default function ContactPage() {
     return (
         <main className="contact-page mt-3 mb-3 ">
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Loading className="contact" />}>
                 <ContactInfo />
-            </Suspense>
-            <Suspense fallback={<Loading />}>
                 <ContactForm />
             </Suspense>
         </main>

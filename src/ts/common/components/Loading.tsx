@@ -7,7 +7,7 @@ const Loading = (props: LoadingI) => {
     const { className } = props
     return (
         <div className={className ? `loading-${className}` : 'loading'}>
-            <h1>Loading...</h1>
+            <div className="loading-spinner"></div>
         </div>
     )
 }
