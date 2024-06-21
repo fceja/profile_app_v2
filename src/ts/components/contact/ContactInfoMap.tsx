@@ -8,10 +8,10 @@ const GoogleMap = lazy(() => import("@components/googleMap/GoogleMap"))
 const ContactInfoMap = () => {
   return (
     <div className="map-container">
-      <div className="map-icon-title">
+      <div className="map-icon-title mb-1">
         <span className="map-icon-text">Serving California</span>
       </div>
-      < Suspense fallback={<Loading />}>
+      < Suspense fallback={<Loading className="contact-info-map" />}>
         <GoogleMap />
       </Suspense>
     </div>

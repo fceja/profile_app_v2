@@ -13,6 +13,17 @@
     height: 300px;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.contact-info-map,
+.loading-google-map {
+    color: rgb(218, 218, 218);
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* spinner styles */
