@@ -7,14 +7,14 @@ const Hero = () => {
                 <div className="left-div">
                     <div className="heading-div">Get the <br />job done.<br /> Right.</div>
                     <div className="hero-logo-container">
-                        <img className="hero-logo" src="src/assets/PopsAndSonsElectricLogo.png" alt="pops-and-sons-logo" />
+                        <img className="hero-logo" src="images/PopsAndSonsElectricLogo.png" alt="pops-and-sons-logo" />
                     </div>
                 </div>
                 <div className="right-div">
                     <div className="trapezoid-img-div">
                         <img
                             className="img-main"
-                            src="src/assets/temp_4x3.png"
+                            src="images/temp_4x3.png"
                             alt="test"
                         />
                     </div>
