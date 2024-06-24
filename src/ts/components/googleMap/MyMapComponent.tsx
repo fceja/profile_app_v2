@@ -1,14 +1,20 @@
 import { useEffect, useRef } from "react";
 
-const MyMapComponent = ({
-  center,
-  zoom,
-  styles,
-}: {
-  center: google.maps.LatLngLiteral;
-  zoom: number;
-  styles: Object;
-}) => {
+import { GoogleMapContent } from "@content/GoogleMapContent";
+
+const center = {
+  lat: GoogleMapContent.latitude,
+  lng: GoogleMapContent.longitude,
+};
+
+const zoom = GoogleMapContent.zoom;
+
+const styles = {
+  width: "100%",
+  height: "300px",
+};
+
+const MyMapComponent = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
