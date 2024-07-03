@@ -24,11 +24,12 @@ const CardSlider = () => {
       <div id="slider">
         {cardsContent.map((slide, index) => {
           return (
-            <div key={index} className="card">
+            <div key={index} className="card d-flex align-items-center justify-content-center">
               <a className="card-link-container" href={slide.urlLink} target="_blank" rel="noreferrer">
                 <img
                   className="card-image"
-                  src={slide.image}
+                  src={slide.imageUrl}
+                  alt={slide.alt}
                 ></img>
               </a>
             </div>

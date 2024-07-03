@@ -2,27 +2,23 @@
 export const cardsContent =
     [
         {
-            image: "images/PaniniKabobGrill.png",
-            title: "Title 1",
-            description: "Panini Kabob Grill",
+            imageUrl: "images/clients/panini_kabob_grill.png",
+            alt: "Panini Kabob Grill logo",
             urlLink: "https://paninikabobgrill.com/",
         },
         {
-            image: "images/PopsAndSonsElectricLogo.png",
-            title: "Pops & Sons",
-            description: "Test",
-            urlLink: "todo",
+            imageUrl: "images/clients/banana_republic.png",
+            alt: "Banana Republic logo",
+            urlLink: "https://bananarepublic.gap.com/",
         },
         {
-            image: "images/PopsAndSonsElectricLogo.png",
-            title: "Pops & Sons",
-            description: "Test",
-            urlLink: "todo",
+            imageUrl: "images/clients/macys.png",
+            alt: "Macy's logo",
+            urlLink: "https://www.macys.com/",
         },
         {
-            image: "images/PopsAndSonsElectricLogo.png",
-            title: "Pops & Sons",
-            description: "Test",
-            urlLink: "todo",
+            imageUrl: "images/clients/7_eleven.png",
+            alt: "7 Eleven logo",
+            urlLink: "https://www.7-eleven.com/",
         },
     ]

@@ -14,8 +14,8 @@ const Hero = () => {
                     <div className="trapezoid-img-div">
                         <img
                             className="img-main"
-                            src="images/temp_4x3.png"
-                            alt="test"
+                            src="images/home_background_image_4x3.png"
+                            alt="background image"
                         />
                     </div>
                 </div>
