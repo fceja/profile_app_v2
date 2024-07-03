@@ -97,6 +97,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-slide-wrapper {
     position: relative; // for arrows
     cursor: default;
+    background-color: rgb(0, 0, 0);
 
     &.image-gallery-thumbnails-left,
     &.image-gallery-thumbnails-right {
@@ -123,9 +124,13 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 }
 
 .image-gallery-slides {
-    background-color: rgb(0, 0, 0);
     position: relative;
     overflow: hidden;
+    visibility: hidden;
+
+    .image-gallery-center {
+        visibility: visible;
+    }
 }
 
 .image-gallery-image {
@@ -144,6 +149,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     cursor: default;
     background-color: rgb(255, 255, 255);
     background-color: rgb(0, 0, 0);
+    max-height: 500px;
 
     &.image-gallery-left,
     &.image-gallery-right {
