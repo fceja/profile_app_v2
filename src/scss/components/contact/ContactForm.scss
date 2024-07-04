@@ -1,9 +1,9 @@
 @import "@scss/Variables.scss";
 
-$placeholder-color: rgb(198, 198, 198);
+$placeholder-color: rgb(229, 229, 229);
 $placeholder-font-weight: 300;
 $placeholder-letter-spacing: -.3px;
-$form-border-color: rgb(198, 198, 198);
+$form-border-color: rgb(229, 229, 229);
 $form-border-radius: 15px;
 
 form {
@@ -32,9 +32,12 @@ form label {
     letter-spacing: -.5px;
 }
 
+textarea {
+    color: rgb(123, 123, 123);
+}
+
 form input {
     color: rgb(143, 143, 143);
-    border-radius: $form-border-radius;
     border-style: solid;
     border-color: $form-border-color;
     padding: 5px 0 5px 10px;
@@ -90,11 +93,10 @@ form input {
 .submit-btn {
     color: rgb(22, 181, 181);
     padding: 8px 0 8px 0;
-    border-radius: $form-border-radius;
     border-style: solid;
     border-width: 1px;
     border-color: rgb(196, 196, 196);
-    background-color: rgba(240, 240, 240, 0.481);
+    background-color: white;
     font-weight: 700;
     font-size: 1.1em;
     letter-spacing: 1px;
@@ -103,6 +105,7 @@ form input {
         background-color: white;
         color: rgb(22, 181, 181);
         border-style: solid;
+        border-width: 1.2px;
         font-weight: 900;
         border-color: rgb(22, 181, 181);
     }
