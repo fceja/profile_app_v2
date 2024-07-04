@@ -37,6 +37,7 @@ const ContactForm = () => {
     });
     const [formIsValid, setFormIsValid] = useState<boolean | null>(null)
     const [formIsSubmitted, setFormIsSubmitted] = useState(false)
+    const [formSentSuccess, setFormSentSuccess] = useState(false)
     const [phoneNum, setPhoneNum] = useState('');
     const [message, setMessage] = useState('');
     const [charCount, setCharCount] = useState(0);
@@ -113,9 +114,11 @@ const ContactForm = () => {
             .then((resp) => {
                 console.log('Successfull')
                 console.log("resp: ", resp);
+                setFormSentSuccess(true)
             })
             .catch(() => {
                 console.error('Error submitting form.')
+                setFormSentSuccess(false)
             })
     }
 
@@ -182,8 +185,13 @@ const ContactForm = () => {
                 >
                     Invalid field(s)
                 </span>
+                {!formIsSubmitted ? null : formSentSuccess ?
+                    <span className="success-text">...success</span>
+                    :
+                    <span className="error-text">...an error occurred</span>
+                }
             </div>
-        </form>
+        </form >
     );
 };
 

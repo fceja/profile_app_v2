@@ -136,9 +136,16 @@ form input {
 
 
 /* error handling */
-$red-error-color: rgb(255, 0, 0);
+.success-text {
+    font-size: .9em;
+    color: rgb(1, 153, 1);
+}
 
-.invalid-form-message {
+$red-error-color: rgb(191, 0, 0);
+
+.invalid-form-message,
+.error-text {
+    font-size: .9em;
     color: $red-error-color;
 }
 
