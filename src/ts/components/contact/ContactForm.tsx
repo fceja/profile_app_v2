@@ -8,7 +8,6 @@ export interface ContactFormI {
     fname: string,
     email: string,
     phone: string,
-    message: string,
 }
 
 export interface FieldInputIdsI {
@@ -32,8 +31,7 @@ const ContactForm = () => {
     const [formData, setFormData] = useState<ContactFormI>({
         fname: "",
         email: "",
-        phone: "",
-        message: "",
+        phone: ""
     });
     const [formIsValid, setFormIsValid] = useState<boolean | null>(null)
     const [formIsSubmitted, setFormIsSubmitted] = useState(false)
@@ -109,11 +107,10 @@ const ContactForm = () => {
         AxiosClient.post("/email/send", {
             contactName: formData.fname,
             contactEmail: formData.email,
-            contactEmailMessage: formData.message,
+            contactEmailMessage: message,
         })
-            .then((resp) => {
-                console.log('Successfull')
-                console.log("resp: ", resp);
+            .then(() => {
+                console.log('Successful')
                 setFormSentSuccess(true)
             })
             .catch(() => {
