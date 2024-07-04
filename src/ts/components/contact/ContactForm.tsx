@@ -182,6 +182,7 @@ const ContactForm = () => {
                 >
                     Invalid field(s)
                 </span>
+                {formIsSubmitted && formSentSuccess === null && <span className="pending-text">...pending</span>}
                 {formIsSubmitted && formSentSuccess === true && <span className="success-text">...success</span>}
                 {formIsSubmitted && formSentSuccess === false && <span className="error-text">...error occurred</span>}
             </div>
