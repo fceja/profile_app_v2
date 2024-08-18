@@ -52,6 +52,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 
 .image-gallery {
     @include vendor-prefix("user-select", none);
+    display: none;
     -webkit-tap-highlight-color: $ig-transparent;
     width: 100%;
     height: 100%;
