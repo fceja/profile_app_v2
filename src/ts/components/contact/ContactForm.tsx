@@ -7,7 +7,6 @@ import { resetInputErrors, validateContactForm } from "@utils/forms/ContactFormV
 export interface ContactFormI {
     fname: string,
     email: string,
-    phone: string,
 }
 
 export interface FieldInputIdsI {
@@ -30,8 +29,7 @@ const MAX_LEN_TEXTAREA = 1000;
 const ContactForm = () => {
     const [formData, setFormData] = useState<ContactFormI>({
         fname: "",
-        email: "",
-        phone: ""
+        email: ""
     });
     const [formIsValid, setFormIsValid] = useState<boolean | null>(null)
     const [formIsSubmitted, setFormIsSubmitted] = useState(false)
@@ -107,6 +105,7 @@ const ContactForm = () => {
         AxiosClient.post("/email/send", {
             contactName: formData.fname,
             contactEmail: formData.email,
+            contactPhone: phoneNum,
             contactEmailMessage: message,
         })
             .then(() => {
