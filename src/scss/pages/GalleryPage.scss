@@ -121,6 +121,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     flex-direction: column;
     width: 100%;
     height: 100%;
+    max-height: 700px;
 }
 
 .image-gallery-slides {
@@ -150,7 +151,6 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-slide {
     left: 0;
     position: absolute;
-    height: 100%;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -189,7 +189,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 }
 
 .image-gallery-thumbnails-wrapper {
-    height: 20%;
+    height: 100px;
     width: 80%;
     display: flex;
     align-items: center;
